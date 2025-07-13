@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { useBlog, NETWORK_REQUEST_STATES } from "./BlogContext";
+import { useBlog } from "../../contexts/BlogContext";
+import { NETWORK_REQUEST_STATES } from "../../config";
 
-import Badge from "./Badge";
-import Button from "./Button";
+import Badge from "../../components/Badge";
+import Button from "../../components/Button";
 
 const Article = ({ id, title, pubDate, cover, description, status }) => {
   const formatDate = (dateString) => {

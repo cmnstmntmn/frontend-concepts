@@ -1,10 +1,10 @@
 // BlogProvider - Aici mentinem state-ul global
-import { BlogProvider, useBlog } from "./BlogContext.js";
+import { BlogProvider, useBlog } from "./contexts/BlogContext.js";
 
 // Our Pages
-import HomePage from "./HomePage.js";
-import DesprePage from "./DesprePage.js";
-import DebugPage from "./DebugPage.js";
+import ArticlesPage from "./pages/articles/ArticlesPage.js";
+import DesprePage from "./pages/DesprePage.js";
+import DebugPage from "./pages/DebugPage.js";
 
 // Naive RouteComponent
 const RouteComponent = ({}) => {
@@ -12,7 +12,7 @@ const RouteComponent = ({}) => {
 
   const routeComponentMap = {
     NOOP: <span>Pagina nu a fost gasita.</span>,
-    home: <HomePage />,
+    home: <ArticlesPage />,
     despre: <DesprePage />,
     debug: <DebugPage />,
   }[route];

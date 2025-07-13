@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useBlog } from "./BlogContext";
+import { useBlog } from "./contexts/BlogContext";
 
-import Button from "./Button.js";
+import Button from "./components/Button.js";
 import Newsletter from "./Newsletter.js";
 
 const Footer = () => {

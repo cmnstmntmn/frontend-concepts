@@ -1,5 +1,5 @@
-import { useBlog } from "./BlogContext";
-import Layout from "./Layout";
+import { useBlog } from "../contexts/BlogContext";
+import Layout from "../Layout";
 
 const DesprePage = () => {
   const appState = useBlog();

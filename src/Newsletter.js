@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "./Button.js";
+import Button from "./components/Button.js";
 
 const Newsletter = () => {
   const [email, setEmail] = useState("");
