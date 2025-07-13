@@ -1,8 +1,292 @@
+/* need to fix the playground */
+html,
+body,
+#app {
+    width: 100%;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========================================
+   DESIGN TOKENS - BARE MINIMUM
+   ======================================== */
+:root {
+    /* Colors - Light */
+    --color-text: black;
+    --color-bg: white;
+    --accent: hotpink;
+
+    /* Status colors */
+    --success: lightgreen;
+    --warning: lightpink;
+    --info: lightgray;
+
+    /* Spacing - Single unit system */
+    --unit: 1rem;
+
+    /* Typography */
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.5rem;
+}
+
+/* Dark mode tokens */
+/*
+@media (prefers-color-scheme: light) {
+  .theme-b.adaptive {
+    background: #bcd;
+    color: #334;
+    outline: 5px dotted #000;
+  }
+}
+*/
+
+.dark {
+    --color-text: white;
+    --color-bg: black;
+    --accent: springgreen;
+}
+
+/* ========================================
+   RESET - Minimal
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html {
-  color-scheme: light dark;
-  font-family: system-ui;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+    display: flex;
+    width: full;
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    min-height: 100%;
+}
+
+body {
+    font-family: monospace;
+    line-height: 1.4;
+    color: var(--color-text);
+    background: var(--color-bg);
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    transition: all 0.2s ease;
+}
+
+/* ========================================
+   FUNCTIONAL CSS - MINIMAL UTILITIES
+   ======================================== */
+
+/* Layout */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--unit);
+}
+.flex {
+    display: flex;
+}
+.grid {
+    display: grid;
+}
+.block {
+    display: block;
+}
+.sticky {
+    position: sticky;
+}
+.top-0 {
+    top: 0;
+}
+.z-10 {
+    z-index: 10;
+}
+
+/* Widths and Heights */
+.min-h-full {
+    min-height: 100%;
+}
+.w-full {
+    width: 100%;
+}
+
+/* Flexbox */
+.flex-col {
+    flex-direction: column;
+}
+.flex-1 {
+    flex: 1;
+}
+.items-center {
+    align-items: center;
+}
+.justify-between {
+    justify-content: space-between;
+}
+.gap {
+    gap: var(--unit);
+}
+
+/* Spacing - Unit-based system */
+.p-1 {
+    padding: var(--unit);
+}
+.p-2 {
+    padding: calc(var(--unit) * 2);
+}
+.mb-1 {
+    margin-bottom: var(--unit);
+}
+.mb-2 {
+    margin-bottom: calc(var(--unit) * 2);
+}
+.mt-auto {
+    margin-top: auto;
+}
+/* Typography */
+.text-sm {
+    font-size: var(--text-sm);
+}
+.text-base {
+    font-size: var(--text-base);
+}
+.text-lg {
+    font-size: var(--text-lg);
+}
+.font-bold {
+    font-weight: bold;
+}
+.uppercase {
+    text-transform: uppercase;
+}
+
+/* Colors */
+.bg-text {
+    background: var(--color-text);
+}
+.bg-surface {
+    background: var(--color-bg);
+}
+.bg-accent {
+    background: var(--accent);
+}
+.text-surface {
+    color: var(--color-bg);
+}
+.text-accent {
+    color: var(--accent);
+}
+
+/* Borders */
+.border {
+    border: 2px solid var(--color-text);
+}
+.border-accent {
+    border: 2px solid var(--accent);
+}
+
+/* Interactive */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Hover effects - Minimal */
+.hover\:bg-text:hover {
+    background: var(--color-text);
+}
+.hover\:text-surface:hover {
+    color: var(--color-bg);
+}
+.hover\:bg-accent:hover {
+    background: var(--accent);
+}
+
+/* Responsive - Single breakpoint */
+@media (min-width: 768px) {
+    .md\:grid-cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .md\:order-first {
+        order: -9999;
+    }
+}
+
+/* Base elements */
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+input,
+button {
+    font-family: inherit;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Screen reader only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Extra utilities needed for the design */
+.inline-block {
+    display: inline-block;
+}
+.grid-1 {
+    grid-template-columns: 1fr;
+}
+.transform-hover:hover {
+    transform: translate(4px, -4px);
+    box-shadow: -4px 4px 0 var(--color-text);
+}
+.px-1 {
+    padding-left: var(--unit);
+    padding-right: var(--unit);
+}
+.py-1 {
+    padding-top: var(--unit);
+    padding-bottom: var(--unit);
+}
+.mb-0\.5 {
+    margin-bottom: calc(var(--unit) * 0.5);
+}
+.bg-success {
+    background: var(--success);
+}
+.bg-warning {
+    background: var(--warning);
+}
+.bg-info {
+    background: var(--info);
+}
+.outline-none:focus {
+    outline: none;
+}
+.border-accent-focus:focus {
+    border-color: var(--accent);
 }
