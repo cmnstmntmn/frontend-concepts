@@ -33,12 +33,12 @@ const Header = () => {
     theme,
     toggleTheme,
   } = useBlog();
-  const [isDark, setIsDark] = useState(false);
-  const { title } = useBlog();
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark");
   }, [theme]);
+
+  const isDark = theme === "dark";
 
   return (
     <header className="sticky top-0 z-10 bg-accent">
@@ -68,7 +68,7 @@ const Header = () => {
                 href="https://www.linkedin.com/in/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-surface"
+                className="flex text-surface"
               >
                 <svg
                   className="text-lg"
